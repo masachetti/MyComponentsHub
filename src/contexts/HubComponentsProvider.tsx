@@ -1,7 +1,16 @@
 import { useLanguage } from "@/contexts/LanguageProvider";
-import React, { PropsWithChildren, useContext, useMemo } from "react";
+import React, {
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import componentsList from "@/utils/componentsList";
-import { LocatedHubComponentWithURLs } from "@/types/componentHub";
+import {
+  HubComponentWithURLs,
+  LocatedHubComponentWithURLs,
+} from "@/types/componentHub";
 import { getStringFromLocatedString } from "@/utils/getStringFromLocatedString";
 
 interface HubComponentsContextValue {
@@ -21,10 +30,15 @@ const HubComponentsProvider: React.FC<PropsWithChildren> = ({
   children,
 }): JSX.Element => {
   const { language } = useLanguage();
+  const [components, setComponents] = useState<Array<HubComponentWithURLs>>([]);
+
+  useEffect(() => {
+    componentsList().then((retComponents) => setComponents(retComponents));
+  }, []);
 
   const hubComponents = useMemo<Array<LocatedHubComponentWithURLs>>(
     () =>
-      componentsList.map((component) => ({
+      components.map((component) => ({
         ...component,
         name: getStringFromLocatedString(
           component.name,
@@ -45,7 +59,7 @@ const HubComponentsProvider: React.FC<PropsWithChildren> = ({
           ),
         })),
       })),
-    [language]
+    [language, components]
   );
 
   const value: HubComponentsContextValue = {
