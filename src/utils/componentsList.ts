@@ -1,7 +1,8 @@
 import componentsPaths from "@/hub_components";
 import hashString from "@/utils/hashString";
+import { HubComponentWithURLs } from "@/types/componentHub";
 
-const componentsList: Array<HubComponentDataWithMetadata> = await Promise.all(
+const componentsList: Array<HubComponentWithURLs> = await Promise.all(
   Object.entries(componentsPaths).map(([componentName, folderName]) =>
     import(`@/hub_components/${folderName}/index.tsx`).then((_i) => ({
       ..._i.default,
@@ -13,5 +14,4 @@ const componentsList: Array<HubComponentDataWithMetadata> = await Promise.all(
   )
 );
 
-console.log(componentsList);
 export default componentsList;
