@@ -26,22 +26,22 @@ const InfoView: React.FC<InfoViewProps> = ({ containerRef }) => {
   return (
     <motion.div
       className={twJoin(
-        "flex flex-col justify-center items-center gap-5 p-6 pt-12 w-[28rem] fixed z-[3] rounded-md border top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2",
+        "flex flex-col justify-center items-center gap-5 p-6 pt-12 sm:w-[28rem] w-80 fixed z-[3] rounded-md border top-1/2 left-1/2",
         "border-slate-950 bg-gray-200 dark:bg-slate-800 dark:border-slate-500"
       )}
       initial={{
-        top: 0,
-        translateY: "-100%",
+        translateY: "-55%",
         translateX: "-50%",
+        opacity: "60%",
       }}
       animate={{
-        top: ["0%", "50%", "50%"],
-        translateY: ["-100%", "-40%", "-50%"],
-        translateX: ["-50%", "-50%", "-50%"],
+        translateY: "-50%",
+        translateX: "-50%",
+        opacity: "100%",
       }}
       transition={{
         ease: "easeInOut",
-        duration: 0.5,
+        duration: 0.2,
       }}
       exit={{
         opacity: 0,

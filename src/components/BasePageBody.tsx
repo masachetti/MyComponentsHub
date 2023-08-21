@@ -17,7 +17,7 @@ const BasePageBody: React.FC<BasePageBodyProps> = ({
         className
       )}
     >
-      <ToolButtons className="absolute top-1 right-4 z-10"></ToolButtons>
+      <ToolButtons className="absolute top-1 right-0 sm:right-4 z-10"></ToolButtons>
       {children}
     </div>
   );

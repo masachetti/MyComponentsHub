@@ -17,7 +17,7 @@ const FilterBar = ({ className = "" }) => {
       )}
     >
       <SearchInput
-        className="w-96 col-span-9 placeholder:text-center"
+        className="sm:w-96 w-80 col-span-9 placeholder:text-center"
         value={search}
         onChange={setSearch}
         placeholder={
