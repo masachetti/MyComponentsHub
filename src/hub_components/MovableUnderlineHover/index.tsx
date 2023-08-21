@@ -17,5 +17,5 @@ export default {
       previewComponent: <OnlyCss></OnlyCss>,
     },
   ],
-  imageOrGifPath: "/gifs/MovableUnderlineHoverMenu.gif",
+  imageOrGifPath: "gifs/MovableUnderlineHoverMenu.gif",
 } as HubComponent;
