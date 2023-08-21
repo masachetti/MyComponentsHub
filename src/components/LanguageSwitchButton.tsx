@@ -45,8 +45,8 @@ const LanguageSwitchButton = React.forwardRef<
           style={{
             transition: "inherit",
             backgroundImage: isPortuguese
-              ? "url('/img/brasil.png')"
-              : "url('/img/england.jpg')",
+              ? "url('img/brasil.png')"
+              : "url('img/england.jpg')",
           }}
         ></div>
       </div>
