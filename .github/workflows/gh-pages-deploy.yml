@@ -5,6 +5,8 @@ on:
       - master
 jobs:
   gh-pages-deploy:
+    permissions:
+      contents: write
     name: Deploying to gh-pages
     runs-on: ubuntu-latest
     steps:
